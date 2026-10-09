@@ -1,0 +1,134 @@
+notify = [ "C:\\Users\\curlyoung\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\45309f9050f7314b\\bin\\node_modules\\@oai\\sky\\bin\\windows\\codex-computer-use.exe", "turn-ended" ]
+
+sandbox_mode = "workspace-write"
+approval_policy = "on-request"
+personality = "pragmatic"
+service_tier = "default"
+web_search = "live"
+model = "gpt-6.1-sol"
+model_reasoning_effort = "high"
+model_verbosity = "medium"
+model_reasoning_summary = "concise"
+
+[windows]
+sandbox = "elevated"
+
+[sandbox_workspace_write]
+network_access = true
+
+[features]
+memories = true
+
+[memories]
+generate_memories = true
+use_memories = true
+
+[marketplaces.openai-bundled]
+source_type = "local"
+source = '\\?\C:\Users\curlyoung\.codex\.tmp\bundled-marketplaces\openai-bundled'
+
+[marketplaces.openai-primary-runtime]
+source_type = "local"
+source = '\\?\C:\Users\curlyoung\.cache\codex-runtimes\codex-primary-runtime\plugins\openai-primary-runtime'
+
+[plugins."codex-app-tools@openai-bundled"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."unified-computer-use@openai-bundled"]
+enabled = true
+
+[plugins."chrome@openai-bundled"]
+enabled = true
+
+[plugins."code-review@openai-bundled"]
+enabled = true
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = true
+
+[mcp_servers.node_repl]
+args = []
+command = 'C:\Users\curlyoung\AppData\Local\OpenAI\Codex\runtimes\cua_node\45309f9050f7314b\bin\node_repl.exe'
+env_vars = ["CODEX_WINDOWS_REGISTERED_CORE"]
+startup_timeout_sec = 120
+
+[mcp_servers.node_repl.env]
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = 'C:\Users\curlyoung\AppData\Local\OpenAI\Codex\runtimes\cua_node\45309f9050f7314b\bin\node_modules'
+NODE_REPL_NODE_PATH = 'C:\Users\curlyoung\AppData\Local\OpenAI\Codex\runtimes\cua_node\45309f9050f7314b\bin\node.exe'
+NODE_REPL_TRUSTED_CODE_PATHS = 'C:\Users\curlyoung\.codex;C:\Users\curlyoung\AppData\Local\OpenAI\Codex\runtimes\cua_node\45309f9050f7314b\bin\node_modules'
+CODEX_HOME = 'C:\Users\curlyoung\.codex'
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab,mcpapps"
+BROWSER_USE_TINYSKY_ENABLED = "1"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
+BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
+BROWSER_USE_CODEX_APP_VERSION = "26.930.31730"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"C:/Users/curlyoung/.codex/plugins/cache/openai-bundled/browser/26.930.31730/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
+SKY_CUA_NATIVE_PIPE = "1"
+SKY_CUA_NATIVE_PIPE_DIRECTORY = '\\.\pipe\codex-computer-use-47c9ea41-fe41-4fb8-832c-c97bc43c9441'
+CODEX_CLI_PATH = 'C:\Users\curlyoung\AppData\Local\OpenAI\Codex\bin\8aaf1547b825b104\codex.exe'
+NODE_REPL_UNTRUSTED_ENV_ALLOWLIST = "CODEX_WINDOWS_REGISTERED_CORE"
+
+[desktop]
+followUpQueueMode = "steer"
+conversationDetailMode = "STEPS_COMMANDS"
+ambient-suggestions-enabled = true
+show-context-window-usage = true
+defaultTerminalLocation = "bottom"
+reviewDelivery = "inline"
+notifications-turn-mode = "unfocused"
+notifications-sound = "default"
+open-link-in-target-preference = "external-browser"
+open-local-url-in-target-preference = "external-browser"
+enabled-reasoning-efforts = ["low", "medium", "high", "xhigh"]
+localeOverride = "zh-CN"
+composerPlainTextMode = true
+browser-show-full-url = true
+browser-annotation-screenshots-mode = "necessary"
+confirm-before-close = "never"
+default-workspace-full-view = true
+git-pull-request-merge-method = "squash"
+git-commit-instructions = """
+Use Conventional Commits: <type>(<scope>): <summary>
+Allowed types: feat, fix, docs, refactor, perf, test, chore, ci, build.
+Use concise English summaries in imperative mood.
+Keep the summary under 72 characters.
+Use a scope when the affected module is clear.
+Suggested scopes: python, matlab, tests, docs, experiments, results, git.
+Use chore(git) for .gitignore or repository-maintenance changes.
+Do not use vague messages such as "update files", "fix code", or "changes"."""
+
+[desktop.open-in-target-preferences]
+global = "systemDefault"
+
+[desktop.open-in-target-preferences.perPath]
+'C:\Users\curlyoung\Documents\Codex\adjacent_channel_crosstalk_compensation' = "gitBash"
+'C:\Users\curlyoung\Documents\Codex\curlyoungoptic' = "terminal"
+
+[projects.'c:\users\curlyoung\documents\codex\curlyoungcodextemplate']
+trust_level = "trusted"
+
+[projects.'c:\users\curlyoung\documents\codex\curlyoungoptic']
+trust_level = "trusted"

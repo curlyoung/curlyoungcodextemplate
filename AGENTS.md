@@ -1,4 +1,11 @@
+Modifying rules in AGENTS.md is not allowed.
+
 # Conda
+
+* Never rely on `conda activate`.
+* Do not invoke Python interpreters or Python-installed CLI tools directly.
+* Run Python-related commands through the repository-specific `conda run` command.
+* Record every required dependency change in the repository's `environment.yml`.
 
 * This repository uses the Conda environment `<env_name> = template`.
 
