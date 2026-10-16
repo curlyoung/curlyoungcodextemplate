@@ -87,14 +87,13 @@
 └── results/	# 结果区
     └── task<id>_<entry_name>/
         ├── logs/
-        ├── metadata.json
-        ├── resolved_config.yaml
+        ├── metadata.yaml
+        ├── resolvedconfig.yaml
         ├── metrics/
         │   ├── <entry_name>.csv
-        │   └── <entry_name>.json
+        │   └── <entry_name>.yaml
         └── figures/
-            ├── <entry_name>.png
-            └── <entry_name>.svg
+            └── <entry_name>.png
 ```
 
 `environment.yml` 用于描述 conda + pip 环境依赖。
@@ -135,15 +134,13 @@ docs/
 ├── tasks/
 │   └── task<id>_<entry_name>.md
 └── references/
-    ├── <entry_name>.pdf
-    └── <entry_name>.docx
 ```
 
 **此区域设计目标：作为 Codex 和开发者理解项目与实施开发的依据。** `docs/references/` 不纳入版本控制。
 
 `docs/` 放置供 Codex 理解项目的 Markdown 文档。
 
-`docs/tasks/` 放置项目的各项任务文档 `task<id>_<entry_name>.md`，描述任务的设计方案，源码区同名任务脚本执行后，将结果、分析结论及相关记录追加至相应文档。
+`docs/tasks/` 放置任务文档 `task<id>_<entry_name>.md`，描述任务的设计方案，源码区同名任务脚本执行后，将结果、分析结论及相关记录追加至相应文档。
 
 `docs/references/` 放置未经加工的原始参考文档，用于开发者制定项目规划、编写任务文档。
 
@@ -153,14 +150,13 @@ docs/
 results/
 └── task<id>_<entry_name>/
     ├── logs/
-    ├── metadata.json
-    ├── resolved_config.yaml
+    ├── metadata.yaml
+    ├── resolvedconfig.yaml
     ├── metrics/
     │   ├── <entry_name>.csv
-    │   └── <entry_name>.json
+    │   └── <entry_name>.yaml
     └── figures/
-        ├── <entry_name>.png
-        └── <entry_name>.svg
+        └── <entry_name>.png
 ```
 
 **此区域设计目标：存放各项任务的执行产物与诊断日志。**`results/` 不纳入版本控制。
@@ -169,13 +165,13 @@ results/
 
 `results/task<id>_<entry_name>/logs/` 放置任务运行日志。
 
-`results/task<id>_<entry_name>/metadata.json` 记录任务运行环境信息。
+`results/task<id>_<entry_name>/metadata.yaml` 记录任务运行环境信息。
 
-`results/task<id>_<entry_name>/resolved_config.yaml` 记录任务生效的完整配置信息。
+`results/task<id>_<entry_name>/resolvedconfig.yaml` 记录任务生效的完整配置信息。
 
-`results/task<id>_<entry_name>/metrics/` 放置数值产出，结构信息保存为 `<entry_name>.json` 文件，表格信息保存为 `<entry_name>.csv` 文件。
+`results/task<id>_<entry_name>/metrics/` 放置数值产出，结构信息保存为 `<entry_name>.yaml` 文件，表格信息保存为 `<entry_name>.csv` 文件。
 
-`results/task<id>_<entry_name>/figures/` 放置图片产出，每张图片保存 PNG 和 SVG 两种格式。
+`results/task<id>_<entry_name>/figures/` 放置图片产出。
 
 ## `code/` 源码区
 
@@ -207,11 +203,11 @@ code/
         └── outputs/
 ```
 
-**此区域设计目标：作为项目的统一任务入口，让模型、算法、逻辑实现为可组合、复用、测试的模块化系统。**`code/python/tests/` 和 `code/matlab/tests/` 不纳入版本控制。
+**此区域设计目标：作为项目的统一任务入口，让模型、算法、逻辑实现为可组合、复用、测试的模块化系统。**`code/python/tests/outputs/` 和 `code/matlab/tests/outputs/` 不纳入版本控制。
 
 `code/` 根目录下放置任务运行脚本与任务配置文件。`code/task<id>_<entry_name>.py` 与 `code/task<id>_<entry_name>.m` 调用功能源码，`code/task<id>_<entry_name>.yaml` 声明任务需求参数。
 
-`code/python/pyproject.toml` 用于管理 Python 项目的构建配置、项目元信息、依赖环境以及开发工具配置。
+`code/python/pyproject.toml` 用于管理 Python 项目的构建配置。
 
 `code/python/<entry_name>/` 为 Python package 源码目录，通过 editable 模式安装。
 
@@ -219,9 +215,9 @@ code/
 
 `code/matlab/+<entry_name>/` 为 MATLAB package 源码目录，通过 package 命名空间组织可复用算法模块和函数接口。
 
-`code/python/configs/` 与 `code/matlab/configs/` 放置默认配置文件，`code/python/configs/<entry_name>.yaml` 与 `code/matlab/configs/<entry_name>.yaml` 声明模块默认参数。
+`code/python/configs/<entry_name>.yaml` 与 `code/matlab/configs/<entry_name>.yaml` 指代频繁复用的配置文件，默认配置于源码定义中指定。
 
-任务运行完毕将任务需求参数、模块默认参数以及运行过程中的覆盖参数一同记录为任务生效的完整配置信息，置于 `results/task<id>_<entry_name>/` 目录下。 
+任务运行完毕将任务需求参数、模块默认参数以及运行过程中的覆盖参数记录为任务生效的完整配置信息，置于 `results/task<id>_<entry_name>/` 目录下。 
 
 `code/python/tests/` 与 `code/matlab/tests/` 放置测试程序，子目录 `code/python/tests/outputs/` 与 `code/matlab/tests/outputs/` 放置测试输出内容。
 

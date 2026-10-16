@@ -240,9 +240,8 @@ data/**
 # Ignore all generated experiment outputs under results/.
 # Keep .gitkeep files so the results directory structure can be tracked by Git.
 
-results/**
-!results/**/
-!results/**/.gitkeep
+/results/*
+!/results/.gitkeep
 
 
 # =============================================================================
