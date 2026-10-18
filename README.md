@@ -27,7 +27,7 @@
    Use concise English summaries in imperative mood.
    Keep the summary under 72 characters.
    Use a scope when the affected module is clear.
-   Suggested scopes: python, matlab, tests, docs, experiments, results, git.
+   Suggested scopes: python, matlab, test, docs, task, result, git.
    Use chore(git) for .gitignore or repository-maintenance changes.
    Do not use vague messages such as "update files", "fix code", or "changes"."""
    ```
@@ -54,21 +54,21 @@
 │   │   └── <entry_name>/
 │   │   │   ├── __init__.py
 │   │   │   └── <entry_name>.py
-│   │   ├── configs/
+│   │   ├── config/
 │   │   │   └── <entry_name>.yaml
-│   │   └── tests/
+│   │   └── test/
 │   │       ├── test_<entry_name>.py
-│   │       └── outputs/
+│   │       └── output/
 │   └── matlab/
 │       ├── mproject.prj
 │       ├── <entry_name>.m
 │       ├── +<entry_name>/
 │       │   └── <entry_name>.m
-│       ├── configs/
+│       ├── config/
 │       │   └── <entry_name>.yaml
-│       └── tests/
+│       └── test/
 │           ├── test_<entry_name>.m
-│           └── outputs/
+│           └── output/
 │
 ├── data/		# 数据区
 │   ├── external/
@@ -78,13 +78,13 @@
 │
 ├── docs/		# 文档区
 │   ├── <entry_name>.md
-│   ├── tasks/
+│   ├── task/
 │   │   └── task<id>_<entry_name>.md
-│   └── references/
+│   └── reference/
 │       ├── <entry_name>.pdf
 │       └── <entry_name>.docx
 │
-└── results/	# 结果区
+└── result/	# 结果区
     └── task<id>_<entry_name>/
         ├── logs/
         ├── metadata.yaml
@@ -131,23 +131,23 @@ data/
 ```
 docs/
 ├── <entry_name>.md
-├── tasks/
+├── task/
 │   └── task<id>_<entry_name>.md
-└── references/
+└── reference/
 ```
 
-**此区域设计目标：作为 Codex 和开发者理解项目与实施开发的依据。** `docs/references/` 不纳入版本控制。
+**此区域设计目标：作为 Codex 和开发者理解项目与实施开发的依据。** `docs/reference/` 不纳入版本控制。
 
 `docs/` 放置供 Codex 理解项目的 Markdown 文档。
 
-`docs/tasks/` 放置任务文档 `task<id>_<entry_name>.md`，描述任务的设计方案，源码区同名任务脚本执行后，将结果、分析结论及相关记录追加至相应文档。
+`docs/task/` 放置任务文档 `task<id>_<entry_name>.md`，描述任务的设计方案，源码区同名任务脚本执行后，将结果、分析结论及相关记录追加至相应文档。
 
-`docs/references/` 放置未经加工的原始参考文档，用于开发者制定项目规划、编写任务文档。
+`docs/reference/` 放置未经加工的原始参考文档，用于开发者制定项目规划、编写任务文档。
 
-## `results/` 结果区
+## `result/` 结果区
 
 ```
-results/
+result/
 └── task<id>_<entry_name>/
     ├── logs/
     ├── metadata.yaml
@@ -159,19 +159,19 @@ results/
         └── <entry_name>.png
 ```
 
-**此区域设计目标：存放各项任务的执行产物与诊断日志。**`results/` 不纳入版本控制。
+**此区域设计目标：存放各项任务的执行产物与诊断日志。**`result/` 不纳入版本控制。
 
-`results/task<id>_<entry_name>/` 放置源码区同名任务脚本的执行产物。
+`result/task<id>_<entry_name>/` 放置源码区同名任务脚本的执行产物。
 
-`results/task<id>_<entry_name>/logs/` 放置任务运行日志。
+`result/task<id>_<entry_name>/logs/` 放置任务运行日志。
 
-`results/task<id>_<entry_name>/metadata.yaml` 记录任务运行环境信息。
+`result/task<id>_<entry_name>/metadata.yaml` 记录任务运行环境信息。
 
-`results/task<id>_<entry_name>/resolvedconfig.yaml` 记录任务生效的完整配置信息。
+`result/task<id>_<entry_name>/resolvedconfig.yaml` 记录任务生效的完整配置信息。
 
-`results/task<id>_<entry_name>/metrics/` 放置数值产出，结构信息保存为 `<entry_name>.yaml` 文件，表格信息保存为 `<entry_name>.csv` 文件。
+`result/task<id>_<entry_name>/metrics/` 放置数值产出，结构信息保存为 `<entry_name>.yaml` 文件，表格信息保存为 `<entry_name>.csv` 文件。
 
-`results/task<id>_<entry_name>/figures/` 放置图片产出。
+`result/task<id>_<entry_name>/figures/` 放置图片产出。
 
 ## `code/` 源码区
 
@@ -186,24 +186,24 @@ code/
 │   └── <entry_name>/
 │   │   ├── __init__.py
 │   │   └── <entry_name>.py
-│   ├── configs/
+│   ├── config/
 │   │   └── <entry_name>.yaml
-│   └── tests/
+│   └── test/
 │       ├── test_<entry_name>.py
-│       └── outputs/
+│       └── output/
 └── matlab/
     ├── mproject.prj
     ├── <entry_name>.m
     ├── +<entry_name>/
     │   └── <entry_name>.m
-    ├── configs/
+    ├── config/
     │   └── <entry_name>.yaml
-    └── tests/
+    └── test/
         ├── test_<entry_name>.m
-        └── outputs/
+        └── output/
 ```
 
-**此区域设计目标：作为项目的统一任务入口，让模型、算法、逻辑实现为可组合、复用、测试的模块化系统。**`code/python/tests/outputs/` 和 `code/matlab/tests/outputs/` 不纳入版本控制。
+**此区域设计目标：作为项目的统一任务入口，让模型、算法、逻辑实现为可组合、复用、测试的模块化系统。**`code/python/test/output/` 和 `code/matlab/test/output/` 不纳入版本控制。
 
 `code/` 根目录下放置任务运行脚本与任务配置文件。`code/task<id>_<entry_name>.py` 与 `code/task<id>_<entry_name>.m` 调用功能源码，`code/task<id>_<entry_name>.yaml` 声明任务需求参数。
 
@@ -215,19 +215,19 @@ code/
 
 `code/matlab/+<entry_name>/` 为 MATLAB package 源码目录，通过 package 命名空间组织可复用算法模块和函数接口。
 
-`code/python/configs/<entry_name>.yaml` 与 `code/matlab/configs/<entry_name>.yaml` 指代频繁复用的配置文件，默认配置于源码定义中指定。
+`code/python/config/<entry_name>.yaml` 与 `code/matlab/config/<entry_name>.yaml` 指代频繁复用的配置文件，默认配置于源码定义中指定。
 
-任务运行完毕将任务需求参数、模块默认参数以及运行过程中的覆盖参数记录为任务生效的完整配置信息，置于 `results/task<id>_<entry_name>/` 目录下。 
+任务运行完毕将任务需求参数、模块默认参数以及运行过程中的覆盖参数记录为任务生效的完整配置信息，置于 `result/task<id>_<entry_name>/` 目录下。 
 
-`code/python/tests/` 与 `code/matlab/tests/` 放置测试程序，子目录 `code/python/tests/outputs/` 与 `code/matlab/tests/outputs/` 放置测试输出内容。
+`code/python/test/` 与 `code/matlab/test/` 放置测试程序，子目录 `code/python/test/output/` 与 `code/matlab/test/output/` 放置测试输出内容。
 
 所有任务脚本和测试命令均从 `<repository root>/` 执行，执行命令样例如下：
 
 ```
 conda run -n <env_name> python code/task<id>_<entry_name>.py
 matlab -batch "run('code/task<id>_<entry_name>.m')"
-conda run -n <env_name> python -m pytest code/python/tests/test_<entry_name>.py
-matlab -batch "run('code/matlab/tests/test_<entry_name>.m')"
+conda run -n <env_name> python -m pytest code/python/test/test_<entry_name>.py
+matlab -batch "run('code/matlab/test/test_<entry_name>.m')"
 ```
 
 Codex 执行代码修改或验证任务时，优先使用项目已有测试和开发工具链。根据任务需求选择单元测试、冒烟测试、回归测试等验证方式；对于复杂模块，可增加静态检查、覆盖率分析或性能测试。

@@ -237,11 +237,11 @@ data/**
 # =============================================================================
 # Experiment results
 # =============================================================================
-# Ignore all generated experiment outputs under results/.
+# Ignore all generated experiment outputs under result/.
 # Keep .gitkeep files so the results directory structure can be tracked by Git.
 
-/results/*
-!/results/.gitkeep
+/result/*
+!/result/.gitkeep
 
 
 # =============================================================================
@@ -249,11 +249,11 @@ data/**
 # =============================================================================
 # Ignore unprocessed reference materials, such as PDFs, Word documents,
 # slides, and other source files.
-# Keep only the top-level .gitkeep file to preserve docs/references/.
+# Keep only the top-level .gitkeep file to preserve docs/reference/.
 
-docs/references/**
-!docs/references/
-!docs/references/.gitkeep
+docs/reference/**
+!docs/reference/
+!docs/reference/.gitkeep
 
 
 # =============================================================================
@@ -262,9 +262,9 @@ docs/references/**
 # Ignore generated Python test output files.
 # Keep only the top-level .gitkeep file to preserve the outputs directory.
 
-code/python/tests/outputs/**
-!code/python/tests/outputs/
-!code/python/tests/outputs/.gitkeep
+code/python/test/output/**
+!code/python/test/output/
+!code/python/test/output/.gitkeep
 
 
 # =============================================================================
@@ -273,6 +273,6 @@ code/python/tests/outputs/**
 # Ignore generated MATLAB test output files.
 # Keep only the top-level .gitkeep file to preserve the outputs directory.
 
-code/matlab/tests/outputs/**
-!code/matlab/tests/outputs/
-!code/matlab/tests/outputs/.gitkeep
+code/matlab/test/output/**
+!code/matlab/test/output/
+!code/matlab/test/output/.gitkeep
